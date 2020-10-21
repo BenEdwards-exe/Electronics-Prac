@@ -1,0 +1,20 @@
+Prac4_nmos_depletion_pulse
+
+Vdd 3 0 5
+Vi 1 0 PULSE(0 5 0 500u 500u 500u 2m)
+
+ML 3 2 2 2 NMOSL
+MD 2 1 0 0 NMOSD
+
+
+.model NMOSL NMOS(LEVEL=1 VTO=-2 KP=40u)
+.model NMOSD NMOS(LEVEL=1 VTO=1 KP=60u)
+
+.tran 5u 5m 0
+
+.control
+run
+plot v(1), v(2)
+.endc
+
+.end

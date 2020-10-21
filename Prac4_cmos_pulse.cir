@@ -1,0 +1,14 @@
+Prac4_cmos_pulse
+
+Vdd 1 0 5
+Vi 3 0 PULSE(0 5 0 500u 500u 500u 2m)
+MP 2 3 1 1 PMOSL
+MN 2 3 0 0 NMOSD
+.model PMOSL PMOS(LEVEL=1 VTO=-1.2 KP=60u)
+.model NMOSD NMOS(LEVEL=1 VTO=1 KP=60u)
+.tran 20u 5m 0
+.control
+run
+plot v(3), v(2)
+.endc
+.end

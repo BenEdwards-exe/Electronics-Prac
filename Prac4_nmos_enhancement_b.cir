@@ -1,0 +1,19 @@
+Prac4_nmos_enhancement_b
+
+Vdd 3 0 5
+Vi 1 0 DC
+
+ML 3 3 2 2 NMOSL
+MD 2 1 0 0 NMOSD
+
+.model NMOSL NMOS(LEVEL=1 VTO=1 KP=30u)
+.model NMOSD NMOS(LEVEL=1 VTO=1 KP=60u)
+
+.DC Vi 0 5 0.05
+
+.control
+run
+plot i(Vdd)
+.endc
+
+.end
